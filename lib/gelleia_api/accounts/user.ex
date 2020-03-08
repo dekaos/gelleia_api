@@ -40,8 +40,8 @@ defmodule GelleiaApi.Accounts.User do
       :status
     ])
     |> validate_format(:email, ~r/@/)
-    |> update_change(:email, &String.downcase($1))
-    |> validate_lenght(:password, min: 6, max: 32)
+    |> update_change(:email, &String.downcase(&1))
+    |> validate_length(:password, min: 6, max: 32)
     |> validate_confirmation(:password)
     |> unique_constraint(:email)
     |> hash_password
