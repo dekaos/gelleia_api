@@ -24,6 +24,13 @@ defmodule GelleiaApi.Schema do
         {:ok, GelleiaApi.Tasks.list_tasks()}
       end
     end
+
+    @desc "Get a list of user payments"
+    field :payments, list_of(:payment_type) do
+      resolve fn _parent, _args, _resolution ->
+        {:ok, GelleiaApi.Payments.list_payments()}
+      end
+    end
   end
 
 #  mutations do
