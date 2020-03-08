@@ -5,7 +5,12 @@ defmodule GelleiaApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", GelleiaApiWeb do
+  scope "/api" do
     pipe_through :api
+    forward("/graphql", Absinthe.Plug, schema: GelleiaApi.Schema)
+
+    if Mix.env() == :dev do
+      forward("/graphiql", Absinthe.Plug.GraphiQL, schema: GelleiaApi.Schema)
+    end
   end
 end

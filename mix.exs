@@ -20,7 +20,7 @@ defmodule GelleiaApi.MixProject do
   def application do
     [
       mod: {GelleiaApi.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :absinthe_plug]
     ]
   end
 
@@ -41,7 +41,10 @@ defmodule GelleiaApi.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:argon2_elixir, "~> 2.3"}
+      {:comeonin, "~> 5.3"},
+      {:argon2_elixir, "~> 2.3"},
+      {:absinthe, "~> 1.4"},
+      {:absinthe_plug, "~> 1.4"}
     ]
   end
 
