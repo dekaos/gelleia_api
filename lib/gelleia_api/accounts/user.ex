@@ -8,7 +8,7 @@ defmodule GelleiaApi.Accounts.User do
     field :last_name, :string
     field :password_hash, :string
     field :password, :string, virtual: true
-    field :password_confirm, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
     field :picture, :string
     field :role, :string, default: "user"
     field :status, :string
@@ -19,20 +19,10 @@ defmodule GelleiaApi.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [
-        :first_name,
-        :last_name, 
-        :picture,
-        :email, 
-        :password, 
-        :password_confirmation, 
-        :role,
-        :status
-      ])
+    |> cast(attrs, [:first_name, :last_name, :picture, :email, :password, :password_confirmation, :role, :status])
     |> validate_required([
       :first_name,
       :last_name,
-      :picture,
       :email,
       :password,
       :password_confirmation,
@@ -47,7 +37,11 @@ defmodule GelleiaApi.Accounts.User do
     |> hash_password
   end
   
-  defp hash_password(changeset) do 
+  defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do 
+    change(changeset, Argon2.add_hash(password))
+  end
+
+  defp hash_password(changeset) do
     changeset
-  end  
+  end
 end
