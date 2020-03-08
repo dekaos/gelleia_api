@@ -2,6 +2,7 @@ defmodule GelleiaApi.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, :binary_id, autogenerate: true}
   schema "users" do
     field :email, :string, unique: true
     field :first_name, :string
@@ -36,8 +37,8 @@ defmodule GelleiaApi.Accounts.User do
     |> unique_constraint(:email)
     |> hash_password
   end
-  
-  defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do 
+
+  defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
     change(changeset, Argon2.add_hash(password))
   end
 
