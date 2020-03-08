@@ -3,4 +3,5 @@ defmodule GelleiaApiWeb.Schema.Types do
 
   import_types(GelleiaApiWeb.Schema.Types.UserType)
   import_types(GelleiaApiWeb.Schema.Types.TeamType)
+  import_types(GelleiaApiWeb.Schema.Types.TaskType)
 end
