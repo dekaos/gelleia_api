@@ -10,6 +10,13 @@ defmodule GelleiaApi.Schema do
         {:ok, GelleiaApi.Accounts.list_users()}
       end
     end
+
+    @des "Get a list for teams"
+    field :teams, list_of(:team_type) do
+      resolve fn _parent, _args, _resolution ->
+        {:ok, GelleiaApi.Teams.list_teams()}
+      end
+    end
   end
 
 #  mutations do
