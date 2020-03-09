@@ -2,6 +2,7 @@ defmodule GelleiaApi.Tasks.Task do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key {:id, :binary_id, autogenerate: true}
   schema "tasks" do
     field :finished, :boolean, default: false
     field :finished_at, :utc_datetime
