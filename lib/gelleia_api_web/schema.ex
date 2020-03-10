@@ -31,6 +31,13 @@ defmodule GelleiaApi.Schema do
         {:ok, GelleiaApi.Payments.list_payments()}
       end
     end
+
+    @desc "Get a list of :uuid of user teams"
+    field :user_teams, list_of(:user_team) do
+      resolve fn _parent, _args, _resolution ->
+        {:ok, GelleiaApi.UserTeams.list_user_teams()}
+      end
+    end
   end
 
 #  mutations do

@@ -7,4 +7,5 @@ defmodule GelleiaApiWeb.Schema.Types do
   import_types(GelleiaApiWeb.Schema.Types.TeamType)
   import_types(GelleiaApiWeb.Schema.Types.TaskType)
   import_types(GelleiaApiWeb.Schema.Types.PaymentType)
+  import_types(GelleiaApiWeb.Schema.Types.UserTeamType)
 end
