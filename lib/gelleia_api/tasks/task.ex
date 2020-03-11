@@ -17,6 +17,6 @@ defmodule GelleiaApi.Tasks.Task do
   def changeset(task, attrs) do
     task
     |> cast(attrs, [:task, :user_id, :team_id, :finished_at, :finished])
-    |> validate_required([:task, :user_id, :team_id, :finished_at, :finished])
+    |> validate_required([:task, :user_id])
   end
 end
