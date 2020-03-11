@@ -8,5 +8,7 @@ defmodule GelleiaApiWeb.Schema.Types.TaskType do
     field(:team_id, :uuid4)
     field(:finished_at, :datetime)
     field(:finished, :boolean)
+    field(:inserted_at, :datetime)
+    field(:updated_at, :datetime)
   end
 end
