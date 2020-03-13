@@ -44,7 +44,8 @@ defmodule GelleiaApi.MixProject do
       {:comeonin, "~> 5.3"},
       {:argon2_elixir, "~> 2.3"},
       {:absinthe, "~> 1.4"},
-      {:absinthe_plug, "~> 1.4"}
+      {:absinthe_plug, "~> 1.4"},
+      {:timex, "~> 3.5"}
     ]
   end
 

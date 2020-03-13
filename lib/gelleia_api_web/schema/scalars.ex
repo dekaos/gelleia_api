@@ -35,4 +35,14 @@ defmodule GelleiaApiWeb.Schema.Types.Scalars do
   end
 
   defp encode(value), do: value
+
+  scalar :datetime do
+    parse fn input ->
+      case Timex.parse(input.value, "{ISO:Extended:Z}") do
+        {:error, _reason} -> :error
+        result -> result
+      end
+    end
+    serialize &Timex.format!(&1, "{ISO:Extended:Z}")
+  end
 end
