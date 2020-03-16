@@ -2,13 +2,12 @@ defmodule GelleiaApi.Schema do
   use Absinthe.Schema
 
   import_types(GelleiaApiWeb.Schema.Types)
+  alias GelleiaApiWeb.Resolvers
 
   query do
     @desc "Get a list of all users"
     field :users, list_of(:user_type) do
-      resolve fn _parent, _args, _resolution ->
-        {:ok, GelleiaApi.Accounts.list_users()}
-      end
+      resolve(&Resolvers.UserResolver.users/3)
     end
 
     @desc "Get a list of all teams"
