@@ -27,8 +27,6 @@ defmodule GelleiaApi.Accounts.User do
       :email,
       :password,
       :password_confirmation,
-      :role,
-      :status
     ])
     |> validate_format(:email, ~r/@/)
     |> update_change(:email, &String.downcase(&1))
