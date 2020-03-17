@@ -28,11 +28,11 @@ defmodule GelleiaApi.Accounts.User do
       :password,
       :password_confirmation,
     ])
-    |> validate_format(:email, ~r/@/)
+    |> validate_format(:email, ~r/@/, message: "INVALID_EMAIL_FORMAT")
     |> update_change(:email, &String.downcase(&1))
-    |> validate_length(:password, min: 6, max: 32)
-    |> validate_confirmation(:password)
-    |> unique_constraint(:email)
+    |> validate_length(:password, min: 6, max: 32, message: "INVALID_PASSWORD_LENGTH")
+    |> validate_confirmation(:password, message: "PASSWORD_DONT_MATCH")
+    |> unique_constraint(:email, message: "EMAIL_IS_ALREADY_BEEN_TAKEN")
     |> hash_password
   end
 
