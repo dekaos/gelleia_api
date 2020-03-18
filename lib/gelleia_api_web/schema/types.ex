@@ -3,6 +3,8 @@ defmodule GelleiaApiWeb.Schema.Types do
 
   import_types(Absinthe.Type.Custom)
   import_types(GelleiaApiWeb.Schema.Types.Scalars)
+
+  import_types(GelleiaApiWeb.Schema.Types.SessionType)
   import_types(GelleiaApiWeb.Schema.Types.UserType)
   import_types(GelleiaApiWeb.Schema.Types.TeamType)
   import_types(GelleiaApiWeb.Schema.Types.TaskType)
