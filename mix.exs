@@ -46,7 +46,8 @@ defmodule GelleiaApi.MixProject do
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
       {:timex, "~> 3.5"},
-      {:absinthe_error_payload, "~> 1.0"}
+      {:absinthe_error_payload, "~> 1.0"},
+      {:guardian, "~> 2.0"}
     ]
   end
 
